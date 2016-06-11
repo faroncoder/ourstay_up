@@ -1,0 +1,164 @@
+
+.localista {
+    font: 700 14px/18px 'Arial Narrow', Arial, sans-serif;
+    color: $darkgrey;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+    @at-root .four-seasons & {
+        font: 700 14px/18px $Base-Font-Family;
+    }
+}
+.localista-recos {
+    margin-bottom: 2px;
+}
+.localista-header {
+    font: 500 14px/18px "museo-slab";
+    text-transform: uppercase;
+    color: $darkblue;
+    margin: 20px 0 5px;
+    @at-root .four-seasons & {
+        font: 500 14px/18px $Base-Font-Family;
+        color: inherit;
+    }
+}
+.localista-profile-image {
+    margin-top: 2px;
+}
+h6.meet-localista-header {
+  padding: 40px 0 40px 0;
+}
+.expert-in {
+    font: 400 14px/20px "lato";
+    @at-root .four-seasons & {
+        font: 400 14px/20px $Base-Font-Family;
+    }
+}
+.localista-random {
+    height: 400px;
+    overflow-y: hidden;
+}
+.localista-perfect {
+    margin-top: 50px;
+}
+.localista-perfect-header {
+    font: 300 42px/48px "museo-slab";
+    margin: 0 0 40px;
+    color: $darkblue;
+    text-align: center;
+    text-transform: uppercase;
+    @at-root .four-seasons & {
+        font: 300 42px/48px $Base-Font-Family;
+        color: inherit;
+    }
+}
+.localista-perfect-copy {
+    font: 400 16px/20px "lato";
+    color: black;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    @at-root .four-seasons & {
+        font: 400 16px/20px $Base-Font-Family;
+    }
+}
+.localista-social {
+    margin-top: 8px;
+}
+.localista-social:after {
+    content: "";
+    display: table;
+    clear: both;
+    width: 100%;
+}
+.localista-social img {
+    height: 32px;
+    width: auto;
+    margin-right: 15px;
+}
+.localista-see-all {
+    margin: 30px 0 60px;
+}
+.localista-btn {
+    background: #ffffff;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font: 500 12px/14px "lato";
+    padding: 10px 20px;
+    border: solid #e5e5e5 2px;
+    text-decoration: none;
+    @at-root .four-seasons & {
+        font: 500 12px/14px $Base-Font-Family;
+    }
+}
+a.localista-btn {
+    color: $lightblue;
+}
+a.localista-btn:hover {
+    color: $darkblue;
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  h6.meet-localista-header {
+    padding: 20px 0 0px 0;
+  }
+  h6.meet-localista-sub-header {
+    padding: 10px 0 15px 0;
+  }
+}
+@media (min-width:1144px) {
+    .localista-mobile-only{
+        display: none !important;
+    }
+    .perfect-slot {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        text-shadow: none !important;
+    }
+}
+@media (max-width:1143px) {
+    .explorer.col-375,
+    .explorer.col-625{
+        width: 100%;
+    }
+    .recommendation-grid .cell{
+        width: 100%;
+    }
+    .localista-desktop-only{
+        display: none !important;
+    }
+    .perfect-slot{
+        text-shadow: none !important;
+        margin: 40px 30px 40px 0;
+    }
+    .localista-profile-image {
+        margin-bottom: 20px;
+    }
+    .localista-see-all {
+        margin: 30px 0 60px;
+    }
+    .localista-perfect-header {
+        margin: 0 0 40px 20px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .localista-perfect-copy {
+        width: 94%;
+        margin: 0 20px;
+        text-align: left;
+    }
+    .localista-social {
+        margin-top: 10px;
+    }
+}

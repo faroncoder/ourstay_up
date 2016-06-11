@@ -1,0 +1,25 @@
+<div class="reco-card cell hover-dark">
+    <div class="cell-wrapper ratio-2-3">
+        <div class="cell-content">
+            <slick settings="slickConfig">
+                <div ng-repeat="slide in ::recommendation.images">
+                    <img fade-in smart-image callback="onImageLoad($index)" class="animate-show" ng-src="{{::slide.thumb}}" alt="" ng-click="loadRec()">
+                </div>
+            </slick>
+            <div class="sub-wrapper">
+                <div class="tout" ng-click="loadRec()">
+                    <h1 ng-show="hasFirstImageLoaded" class="animate-show">{{::recommendation.name}}</h1>
+                    <p ng-show="hasFirstImageLoaded" class="animate-show">{{::recommendation.shortDescription}}</p>
+                </div>
+            </div>
+            <h3 ng-show="recommendation.drivingMinutesValue" class="directions animate-show">
+                <span ng-hide="recommendation.startPointLabel === 'hotel'">From {{recommendation.startPointLabel}}:</span>
+                <span ng-show="recommendation.startPointLabel === 'hotel'">From hotel:</span>
+                <span ng-show="recommendation.walkingMinutesValue <= recommendation.maxWalkingMinutes">{{recommendation.walkingMinutes}}</span>
+                <img ng-show="recommendation.walkingMinutesValue <= recommendation.maxWalkingMinutes" class="walk never-dark icon-shadow" ng-src="/static/images/white-walk.png" />
+                <span ng-show="recommendation.drivingMinutes">{{recommendation.drivingMinutes}}</span>
+                <img class="car never-dark icon-shadow" ng-src="/static/images/white-car.png" />
+            </h3>
+        </div>
+    </div>
+</div>

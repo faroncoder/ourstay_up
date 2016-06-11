@@ -1,0 +1,36 @@
+{
+  "name": "ourstay",
+  "version": "0.0.0",
+  "homepage": "https://github.com/leftfieldlabs/ourstay",
+  "authors": [
+    "Sebastian Lemery <sebastian@lemery.io>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "angular": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-touch": "~1.4.8",
+    "angular-carousel": "~1.0.1",
+    "angular-pageslide-directive": "ng-pageslide#~1.0.8",
+    "angular-slick-carousel": "~3.1.4",
+    "slick-carousel": "~1.5.9",
+    "modernizr": "~3.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  },
+  "resolutions": {
+    "angular": "~1.4.8"
+  }
+}

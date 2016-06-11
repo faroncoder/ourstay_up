@@ -1,0 +1,21 @@
+<table class="explore-table desktop-only">
+    <tr>
+        <td class="small-category-tile">
+            <div class="cat-wrapper left-card">
+                <explore-card property-id="property" category="cat" ng-repeat="cat in cats.slice(0,1)"></explore-card>
+            </div>
+        </td>
+        <td class="large-category-tile" rowspan="2">
+            <div class="cat-wrapper">
+                <explore-card property-id="property" category="cat" ng-repeat="cat in cats.slice(1,2)"></explore-card>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="small-category-tile">
+            <div class="cat-wrapper left-card bottom-card">
+                <explore-card property-id="property" category="cat" ng-repeat="cat in cats.slice(2,3)"></explore-card>
+            </div>
+        </td>
+    </tr>
+</table>
