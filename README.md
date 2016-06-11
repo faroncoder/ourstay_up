@@ -26,4 +26,5 @@ Run `./scripts/install` from project directory
 Run `./scripts/test` from project directory
 
 ## Production
-Merging anything into `master` will trigger CircleCI to run a pass and push to production. **DO SO WITH CAUTION**.# ourstay_up
+Merging anything into `master` will trigger CircleCI to run a pass and push to production. **DO SO WITH CAUTION**.
+

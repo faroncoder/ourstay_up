@@ -1,0 +1,122 @@
+.modal-register {
+    position: relative;
+}
+.ng-modal-overlay {
+    position: fixed;
+    z-index: 10001;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.8;
+    //display: none;
+}
+.ng-modal-dialog {
+    z-index: 10002;
+    position: fixed;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    //display: none;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 4px 4px 80px #000;
+    @media (max-width: 568px) {
+        width: 95% !important;
+    }
+}
+.ng-modal-dialog-content {
+    padding: 10px;
+    text-align: left;
+}
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 120%;
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'arial', 'sans-serif';
+    color:$darkgrey;
+}
+.modal-links{
+    width: 264px;
+    margin: 0 auto;
+    @media (max-width: 568px) {
+      width: 90%;
+      max-width: 264px;
+    }
+    .social-icons {
+        font-size: 24px;
+        border-right: 1px solid #EAEAEA;
+        padding: 10px;
+        width: 48px;
+        text-align: center;
+    }
+    .social-button {
+        border-radius: 5px;
+        background-color: white;
+        border: 1px solid black;
+        margin: 6px 0px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+    }
+    .social-button-text {
+        text-align: center;
+        flex: 0 0 63%;
+    }
+    .twitter-button {
+        background-color: #5EA9DD;
+        color: white;
+        border: 1px solid #5EA9DD;
+    }
+    .facebook-button {
+        background-color:#3564A2;
+        color: white;
+        border: 1px solid #3564A2;
+    }
+    .email-button, .sms-button {
+        color: black;
+    }
+}
+.tint {
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+.tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255, 0.25);
+    -moz-transition: background 0.3s linear;
+    -webkit-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+    transition: background 0.3s linear;
+}
+.tint:hover:before {
+    background: none;
+}
+.ng-modal h1 {
+    width: 90%;
+    font-size: 30px;
+    line-height: 1;
+    @media (max-width: 568px) {
+      width: 80%;
+    }
+    text-align: center;
+    margin: 10px auto 20px;
+    text-transform: initial;
+}

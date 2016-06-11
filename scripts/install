@@ -1,0 +1,24 @@
+#!/bin/sh
+
+node -v >/dev/null 2>&1 || { echo >&2 "\nLooks like you haven't installed node; Please visit: https://nodejs.org/en/\n"; exit 1; }
+npm --version >/dev/null 2>&1 || { echo >&2 "\nLooks like you haven't installed npm; Please visit: https://nodejs.org/en/\n"; exit 1; }
+bower --version >/dev/null 2>&1 || { echo >&2 "\nLooks like you haven't installed bower; Please run: `npm install bower -g (you may need to run as sudo)`\n"; exit 1; }
+gulp --version >/dev/null 2>&1 || { echo >&2 "\nLooks like you haven't installed gulp; Please run: `npm install gulp -g (you may need to run as sudo)`\n"; exit 1; }
+jsdoc --version >/dev/null 2>&1 || { echo >&2 "\nLooks like you haven't installed jsdoc; Please run: `npm install jsdoc -g (you may need to run as sudo)`\n"; exit 1; }
+
+CURRENT_DIR=$( echo $PWD )
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+PROJECT_DIR=$( cd $SCRIPTS_DIR && cd .. && pwd )
+OUT_DIR=$( cd $SCRIPTS_DIR && cd ../out && pwd )
+
+echo 'Installing node modules locally...'
+cd "$PROJECT_DIR" && npm install
+
+echo 'Installing bower components...'
+cd "$PROJECT_DIR" && bower install
+
+echo 'Generating docs locally...'
+rm -rf $OUT_DIR
+cd "$PROJECT_DIR" && jsdoc src -r --readme README.docs.md
+
+echo 'Done!'

@@ -1,0 +1,155 @@
+
+a,a:visited {
+    color: $darkblue;
+}
+a:hover{
+    color: $lightblue;
+}
+h1{
+    font: 300 42px/48px $Base-Font-Family;
+    @at-root .four-seasons & {
+        text-transform: uppercase;
+    }
+}
+h2{
+    font: 500 42px/48px $Base-Font-Family;
+    background: transparent;
+}
+h3{
+    font: 500 16px/20px $Base-Font-Family;
+}
+h4{
+    font: 500 22px/26px $Base-Font-Family;
+}
+h5{
+    font: 300 38px/42px $Base-Font-Family;
+}
+h6{
+    font: 300 38px/42px $Base-Font-Family;
+}
+a{
+    font: 700 14px/18px $Base-Font-Family;
+}
+nav a {
+    font: 400 16px/20px $Base-Font-Family;
+}
+.tout p {
+  font: 500 18px/22px $Base-Font-Family;;
+  letter-spacing: 0.5px;
+}
+.detail-heading{
+    font: 300 14px/18px $Base-Font-Family;
+    @at-root .hyatt & {
+        color: $darkblue;
+    }
+    @at-root .four-seasons & {
+        font-size: 14px;
+    }
+}
+.caps {
+  text-transform: uppercase;
+}
+
+.w400 {
+  font: 400 16px/20px $Base-Font-Family !important;
+}
+
+.lower {
+    text-transform: lowercase;
+}
+
+.medium-paragraph{
+    font: 300 16px/20px $Base-Font-Family;
+}
+.section-highlight .medium-paragraph, .section-highlight-no-pad .medium-paragraph {
+  font: 400 16px/20px $Base-Font-Family;
+}
+.small-paragraph{
+    font: 300 14px/18px $Base-Font-Family;
+}
+.address{
+    font: 700 14px/18px 'Arial Narrow', Arial, sans-serif;
+    color: $darkgrey;
+    text-transform: uppercase;
+}
+a.hours-toggle,
+a.hours-toggle:visited,
+a.hours-toggle:active{
+    color:$lightblue;
+    font: 400 14px/18px $Base-Font-Family;
+    margin-left: 1em;
+    cursor: pointer
+}
+.back,
+.back:visited,
+ {
+    color: $lightblue;
+    font: 700 14px/18px $Base-Font-Family;
+    text-decoration: none;
+    cursor: pointer;
+}
+a.hours-toggle:hover,
+.back:hover{
+    color: $darkblue;
+}
+
+.meet-tagline {
+  color: black !important;
+}
+
+@media (max-width:1023px){
+    h1{
+        font: 500 30px/34px $Base-Font-Family;
+    }
+    h2{
+        font: 500 20px/24px $Base-Font-Family;
+    }
+    h3{
+        font: 500 12px/14px $Base-Font-Family;
+    }
+    h4{
+        font: 500 14px/16px $Base-Font-Family;
+    }
+    h5{
+        font: 300 22px/26px $Base-Font-Family;
+        @at-root .four-seasons & {
+            font: 700 22px/26px $Base-Font-Family;
+        }
+    }
+    h6{
+        font: 300 22px/26px $Base-Font-Family;
+    }
+    a{
+        font: 700 12px/14px $Base-Font-Family;
+    }
+    nav a, .slide-menu .main a {
+        font: 300 16px/20px $Base-Font-Family;
+    }
+    nav a, .slide-menu .sub a {
+        font: 300 12px/14px $Base-Font-Family;
+    }
+    h3.nav-title{
+        font: 16px/60px $Base-Font-Family;;
+        // text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        color: $white;
+        font-weight: 400;
+    }
+    .tout p{
+        font: 500 14px/16px $Base-Font-Family;
+    }
+    .detail-heading{
+        font: 300 18px/22px $Base-Font-Family;
+    }
+    .medium-paragraph{
+        font: 300 16px/20px $Base-Font-Family;
+    }
+    .small-paragraph{
+        font: 300 12/14px $Base-Font-Family;
+    }
+    .address{
+        font: "300 12px/14px";
+        font-family: $Base-Font-Family;
+    }
+}

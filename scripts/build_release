@@ -1,0 +1,12 @@
+#!/bin/sh
+
+CURRENT_DIR=$( echo $PWD )
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+PROJECT_DIR=$( cd $SCRIPTS_DIR && cd .. && pwd )
+OUT_DIR=$( cd $SCRIPTS_DIR && cd ../dist && pwd )
+
+echo "Deleting dist folder..."
+rm -Rf "$OUT_DIR"
+
+echo "Rebuilding dist folder..."
+cd $PROJECT_DIR && gulp build

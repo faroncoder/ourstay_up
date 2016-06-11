@@ -1,0 +1,10 @@
+<div class="recommendation-grid welcome-grid row">
+  <div class="select-container">
+    <h1 class="four-seasons-header">Four Seasons</h1>
+    <h3>Select a Property</h3>
+    <select ng-model="selected" ng-options="property as property.productsearchname for property in vm.fsProperties track by property.propertyid"  ng-change="vm.onChange(selected)" class="welcome-select">
+      <option value="">Properties...</option>
+    </select>
+  </div>
+</div>
+
