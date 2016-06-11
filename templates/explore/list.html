@@ -1,0 +1,24 @@
+<div ng-hide="vm.isLoadingCategories" class="section-header full-header" style="background-image: url('http://ourhistree-prd.s3.amazonaws.com/fs/i/b/{{vm.propertyId}}-header-16x9.jpg')">
+    <h1>{{vm.property.primaryName}}</h1>
+    <h2>{{vm.property.secondaryName}}</h2>
+    <div class="section-header-link-wrapper">
+        <a ng-href="{{vm.getPropertyLink()}}" target='_blank'>Learn more about the hotel </a>
+    </div>
+</div>
+<div ng-show="vm.isLoadingCategories" class="category-loader">
+    <div class="loading-indicator-container">
+        <div class="loading-indicator"></div>
+    </div>
+</div>
+<div ng-hide="vm.isLoadingCategories" class="explore-grid mobile-only" style="display: nlarge-category-tile">
+    <!-- Uncomment to bring back localista -->
+    <!-- <explore-card property-id="vm.propertyId" ng-if="vm.localista" grid-id="{{$index}}" localista="vm.localista" ng-click="vm.goToLocalista(vm.localista.conciergeProfileId)"></explore-card> -->
+    <explore-card property-id="vm.propertyId" category="cat" grid-id="{{$index}}" ng-repeat="cat in vm.categories track by cat.id"></explore-card>
+</div>
+<div ng-hide="vm.isLoadingCategories" style="border-bottom: 2px solid white">
+    <div ng-repeat="pattern in vm.rowPattern track by $index">
+        <sinister ng-if="vm.sinister[$index]" rownumber="$index" cats="vm.sinister[$index]" property="vm.propertyId" localista="vm.localista"></sinister>
+        <libra ng-if="vm.libra[$index]" cats="vm.libra[$index]" property="vm.propertyId"></libra>
+        <dexter ng-if="vm.dexter[$index]" cats="vm.dexter[$index]" property="vm.propertyId"></dexter>
+    </div>
+</div>

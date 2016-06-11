@@ -1,0 +1,79 @@
+<nav class="nav-container" ng-controller="NavController as nc" ng-class="logo">
+    <div class="content-container">
+        <a class="logo desktop-only" ng-href="#" ng-click="nc.navigateToHome()">
+            <img ng-src="/static/images/{{logo}}-black-bg.png" />
+        </a>
+        <div class="desktop-only">
+            <div class="nav-links">
+                <ul>
+                    <li ng-show="nc.isPropertyIdSet()"><a ng-class="(nc.sectionTitle=='Moods') ? 'active' : ''" ng-href="/property/{{nc.propertyId}}/explore/">Moods</a></li>
+                    <li ng-show="nc.isPropertyIdSet()"><a ng-class="(nc.sectionTitle=='Featured Recommendations') ? 'active' : ''" ng-href="/property/{{nc.propertyId}}/featured-recommendations/">Featured Recommendations</a></li>
+                    <li ng-show="nc.isPropertyIdSet()"><a ng-class="(nc.sectionTitle=='Near Me') ? 'active' : ''" ng-href="/property/{{nc.propertyId}}/near-me/">Near Me</a></li>
+                    <!-- Uncomment to bring back localista -->
+<!--                     <li ng-show="nc.isPropertyIdSet() && nc.localistaId !== null"><a ng-class="(nc.sectionTitle=='Featured Concierge') ? 'active' : ''" ng-href="/property/{{nc.propertyId}}/featured-concierge/{{nc.localistaId}}/">Featured Concierge</a></li> -->
+                    <li ng-show="nc.isPropertyIdSet()"><a ng-href="/">Other Locations</a></li>
+                </ul>
+            </div>
+        </div>
+        <form novalidate class="desktop-only nav-search" ng-show="nc.isPropertyIdSet()" ng-submit="nc.search($event, nc.searchQuery)">
+            <input ng-model="nc.searchQuery" type="text">
+        </form>
+        <div class="reservation-button desktop-only" ng-show="nc.isPropertyIdSet()">
+            <a ng-href="https://reservations.fourseasons.com/plan-your-stay?hotelCode={{nc.property.propertyCode}}" target='_blank'>Check Rates &amp; Availability</a>
+        </div>
+        <div class="slide-menu" pageslide ps-open="nc.checked" ng-class="(logo == 'miami') ? 'mobile-miami' : 'elsewhere'">
+            <nav class="pageslide-nav-container">
+                <a ng-href="#" target="_blank"><img class="ourstay" ng-src="/static/images/{{logo}}-small-dark.png" /></a>
+                <!-- <div class="mobile-hotel-name">{{nc.property.name}}</div> -->
+                <a class="open hamburger mobile-only" ng-click="nc.toggleMenu()">
+                  <img src="/static/images/icon-hamburger-open_2x.png" />
+                </a>
+            </nav>
+            <div>
+                <ul class="main">
+                    <li><a ng-class="(nc.sectionTitle=='Moods') ? 'active' : ''" ng-click="nc.toggleMenu()" ng-href="/property/{{nc.propertyId}}/explore/">Moods</a></li>
+                    <li><a ng-class="(nc.sectionTitle=='Featured Recommendations') ? 'active' : ''" ng-click="nc.toggleMenu()" ng-href="/property/{{nc.propertyId}}/featured-recommendations/">Featured Recommendations</a></li>
+                    <li><a ng-class="(nc.sectionTitle=='Near Me') ? 'active' : ''" ng-click="nc.toggleMenu()" ng-href="/property/{{nc.propertyId}}/near-me/">Near Me</a></li>
+                    <!-- Uncomment to bring back localista -->
+                  <!--   <li><a ng-class="(nc.sectionTitle=='Featured Concierge') ? 'active' : ''" ng-click="nc.toggleMenu()" ng-href="/property/{{nc.propertyId}}/featured-concierge/{{nc.localistaId}}/">Featured Concierge</a></li> -->
+                    <li><a ng-href="/">Other Locations</a></li>
+                    <li>
+                      <form action="." novalidate class="mobile-only nav-search" ng-show="nc.isPropertyIdSet()" ng-submit="nc.search($event, nc.searchQuery)">
+                        <input ng-model="nc.searchQuery" type="search" placeholder="SEARCH">
+                      </form>
+                    </li>
+                    <li>
+                        <div class="reservation-button mobile-only">
+                            <a ng-href="https://reservations.fourseasons.com/plan-your-stay?hotelCode={{nc.property.propertyCode}}">Check Rates &amp; Availability</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="sub">
+                    <li><a ng-href="http://www.fourseasons.com/privacy/" target="_blank">Privacy Policy</a></li>
+                    <li><a ng-href="http://www.fourseasons.com/legal/" target="_blank">Legal Notice</a></li>
+                </ul>
+                <a class="powered-by" ng-href="http://www.ourstay.com/" target="_blank">
+                    <img ng-src="/static/images/icon-ourstay-menu_2x.png" />
+                </a>
+            </div>
+        </div>
+
+        <a ng-show="nc.isPropertyIdSet()" class="mobile-only back-arrow " ng-href="" our-back-button>
+          <img src="/static/images/icon-arrow-right_2x.png" />
+        </a>
+
+        <a ng-href="#" ng-click="nc.navigateToHome()">
+          <img ng-show="nc.showMobileLogo" class="mobile-only mobile-nav-logo" ng-src="/static/images/{{logo}}.png" />
+        </a>
+
+        <h3 ng-show="nc.showMobileTitle" class="mobile-only nav-title">{{nc.sectionTitle}}</h3>
+
+        <a ng-show="nc.isPropertyIdSet()" class="closed hamburger mobile-only" ng-href="" ng-click="nc.toggleMenu()">
+          <img src="/static/images/icon-hamburger_2x.png" />
+        </a>
+
+        <!--<a ng-show="nc.isLocationTrackingActive() === false" ng-href="#" ng-click="nc.enableLocationServices()">Enable location services</a>-->
+        <!--<a ng-show="nc.isLocationTrackingActive() === true" ng-href="#" ng-click="nc.disableLocationServices()">Disable location services</a>-->
+        <!--<span ng-show="nc.currentPosition">Location: {{nc.currentPosition.coords.latitude}}, {{nc.currentPosition.coords.longitude}}</span>-->
+    </div>
+</nav>

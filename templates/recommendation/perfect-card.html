@@ -1,0 +1,36 @@
+<div ng-if="cardIndex %2 == 0" style="display:inline;">
+    <recommendation-card ng-if="slot.recommendation" recommendation="slot.recommendation" property-id="propertyId"></recommendation-card>
+    <div class="reco-card cell no-pointer">
+        <div class="cell-wrapper ratio-2-3">
+            <div class="cell-content">
+                <slick settings="slickConfig">
+                    <div>
+                        <img ng-src="/static/images/trans-placeholder.png">
+                    </div>
+                </slick>
+                <div class="perfect-slot">
+                    <div class="localista-perfect-header loc-{{propertyId}}">{{slot.title}}</div>
+                    <div class="localista-perfect-copy">{{slot.description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="cardIndex %2 != 0" style="display:inline;">
+    <div class="reco-card cell no-pointer">
+        <div class="cell-wrapper ratio-2-3">
+            <div class="cell-content">
+                <slick settings="slickConfig">
+                    <div>
+                        <img ng-src="/static/images/trans-placeholder.png">
+                    </div>
+                </slick>
+                <div class="perfect-slot">
+                    <div class="localista-perfect-header loc-{{propertyId}}">{{slot.title}}</div>
+                    <div class="localista-perfect-copy">{{slot.description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <recommendation-card ng-if="slot.recommendation" recommendation="slot.recommendation" property-id="propertyId"></recommendation-card>
+</div>

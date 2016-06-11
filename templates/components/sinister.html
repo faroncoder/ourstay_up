@@ -1,0 +1,23 @@
+<table class="explore-table desktop-only">
+    <tr>
+        <td class="large-category-tile" rowspan="2">
+            <div class="cat-wrapper left-card">
+                <!-- Uncomment to bring back localista -->
+                <!-- <explore-card property-id="property" ng-if="localista && (rownumber==0)" localista="localista"></explore-card> -->
+                <explore-card property-id="property" ng-if="!localista || (rownumber>0)" category="cat" ng-repeat="cat in cats.slice(0,1)"></explore-card>
+            </div>
+        </td>
+        <td class="small-category-tile">
+            <div class="cat-wrapper">
+                <explore-card property-id="property" category="cat" ng-repeat="cat in cats.slice(1,2)"></explore-card>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="small-category-tile">
+            <div class="cat-wrapper bottom-card">
+                <explore-card property-id="property" category="cat" ng-repeat="cat in cats.slice(2,3)"></explore-card>
+            </div>
+        </td>
+    </tr>
+</table>

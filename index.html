@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="ourstay" lang="en" ng-controller="AppController as appCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:url" content="{{appCtrl.metaUrl}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{appCtrl.metaTitle}}" />
+    <meta property="og:description" content="{{appCtrl.metaDesc}}" />
+    <meta ng-if="appCtrl.metaImgUrl" property="og:image" content="{{appCtrl.metaImgUrl}}" />
+
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/vendor.css">
+    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+    <link rel="shortcut icon" href="/static/images/favicon.ico?" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kLt-ZwwJ-0bLjeJLbuxqkoidWTdWTZI"></script>
+
+    <title>Four Seasons Recommends</title>
+</head>
+<body ng-cloak ng-class="{{brand}}" class="four-seasons">
+
+  <div id="container" ng-if="appCtrl.isBrowserModern">
+     <div id="main-wrapper" ng-controller="LayoutController">
+         <ng-include src="'templates/layout/nav.html'"></ng-include>
+         <section class="content-container site-content" ng-view></section>
+         <ng-include src="'templates/layout/footer.html'"></ng-include>
+     </div>
+  </div>
+  <div ng-class="{'browser-too-old': !appCtrl.isBrowserModern}" ng-if="!appCtrl.isBrowserModern" style="display: none;">
+      <p id="whatbrowser" class="whatbrowser">You are using an <strong>outdated</strong> browser. Please <a href="http://whatbrowser.com/">upgrade your browser</a> to improve your experience.</p>
+  </div>
+
+  <script src="https://use.typekit.net/qof8ibs.js"></script>
+  <script src="/static/js/libs/vendor.js"></script>
+  <script src="/static/js/app.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+</body>
+</html>
