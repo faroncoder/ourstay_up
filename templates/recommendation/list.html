@@ -1,0 +1,52 @@
+<div ng-hide="vm.isLoading" class="section-header" style="background-image: url('http://ourhistree-prd.s3.amazonaws.com/fs/i/b/{{vm.propertyId}}-header-16x9.jpg')">
+    <h1>{{vm.property.primaryName}}</h1>
+    <h2>{{vm.property.secondaryName}}</h2>
+    <div class="section-header-link-wrapper">
+        <a ng-href="{{vm.getPropertyLink()}}" target='_blank'>Get our recommendations.</a>
+    </div>
+</div>
+<div ng-show="vm.firstLoad" class="category-loader" >
+    <div class="loading-indicator-container">
+        <div class="loading-indicator"></div>
+    </div>
+</div>
+<div ng-hide="vm.firstLoad && !vm.isLoading">
+
+    <div class="category-title" ng-show="vm.pageTitle && !vm.isLoading">
+        <h2 class="loc-{{::vm.propertyId}}">{{vm.pageTitle}}</h2>
+        <p ng-show="vm.pageDescription">{{vm.pageDescription}}</p>
+        <p><a ng-href="#" ng-click="vm.navigateToExplore()">Back to Moods</a></p>
+    </div>
+
+    <div ng-show="vm.localistaPage">
+      <div class="recos-header" ng-hide="vm.isLoading">
+        <h6 class="loc-{{::vm.propertyId}}">{{vm.title}}</h6>
+      </div>
+    </div>
+    <div ng-show="vm.searchPage" ng-hide="vm.firstLoad">
+        <div class="search-header loc-{{::vm.propertyId}}" ng-show="vm.searchPage"><h6>{{vm.title}}</h6></div>
+        <p class="no-results" ng-show="vm.searchPage && !vm.searchResults">Your search did not match any documents.</p>
+    </div>
+    <div class="search-header loc-{{::vm.propertyId}}" ng-show="!vm.firstLoad && !vm.searchPage && vm.recommendations.length === 0"><h6>No results found</h6></div>
+    <div class="uniform recommendation-grid row" infinite-scroll-container="vm.getNext()">
+        <!--LOCALISTA CARD-->
+        <!-- Uncomment to bring back localista -->
+        <!-- <div class="localista-card reco-card cell hover-dark animate-show" ng-show="vm.isLocalistaVisible">
+            <div class="cell-wrapper" ng-click="vm.goToLocalista(vm.localista.conciergeProfileId)">
+                <img class="rec-list-img-hack animate-show" ng-src="{{::vm.localista.primaryImageUrl}}" alt="" >
+                <div class="sub-wrapper">
+                  <div class="tout">
+                      <h1>Meet {{::vm.localista.firstName}}</h1>
+                      <p>{{::vm.localista.conciergeTitle}}</p>
+                  </div>
+                </div>
+            </div>
+        </div> -->
+        <recommendation-card recommendation="rec" property-id="::vm.propertyId" ng-repeat="rec in vm.recommendations track by rec.id"></recommendation-card>
+    </div>
+</div>
+<div class="list-loader" ng-show="vm.isLoading && !vm.firstLoad">
+    <div class="loading-indicator-container">
+        <div class="loading-indicator"></div>
+    </div>
+</div>

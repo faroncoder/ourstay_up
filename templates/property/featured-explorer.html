@@ -1,0 +1,50 @@
+<div ng-show="vm.isLoading" class="category-loader">
+    <div class="loading-indicator-container">
+        <div class="loading-indicator"></div>
+    </div>
+</div>
+<div ng-hide="vm.isLoading">
+    <div class="row">
+        <div class="explorer col-625 desk-right">
+            <img ng-src="{{vm.localista.primaryImageUrl}}" class="localista-profile-image"/>
+        </div>
+        <div class="explorer col-375 desk-left content-section">
+            <a class="back desktop-only" ng-href="" our-back-button>&LT; Back</a>
+            <h5>{{vm.localista.firstName}}&nbsp;{{vm.localista.lastName}}</h5>
+            <div class="localista">Featured Concierge</div>
+            <div class="localista-header loc-{{vm.propertyId}}">Local Expert in:</div>
+            <div class="expert-in" ng-repeat="expertise in vm.localista.expertises">{{expertise}}</div>
+
+            <div class="localista-header loc-{{vm.propertyId}}" ng-show="vm.localista.mediaLinks.length > 0">Follow Concierge:</div>
+            <div class="localista-social" ng-show="vm.localista.mediaLinks.length > 0">
+                <a ng-repeat="mobj in vm.localista.mediaLinks track by $index" class="tint" href="{{mobj.url}}" target="_blank">
+                    <img ng-src="/static/images/localista-{{mobj.type}}.png" />
+                </a>
+            </div>
+            <div class="localista-see-all">
+                <a href="{{vm.moreRecosLink}}" class="localista-btn">See All My Favorites</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="localista-desktop-only recommendation-grid row localista-recos">
+        <div ng-repeat="slot in vm.slots track by slot.id" style="display: inline">
+            <perfect-card property-id="vm.propertyId" slot="slot" card-index="$index"></perfect-card>
+        </div>
+    </div>
+    <div class="localista-mobile-only recommendation-grid row  localista-recos">
+        <div ng-repeat="slot in vm.slots track by slot.id" style="display: inline">
+            <recommendation-card recommendation="slot.recommendation" property-id="vm.propertyId"></recommendation-card>
+            <div class="reco-card cell no-pointer">
+                <div class="cell-wrapper">
+                    <div class="perfect-slot">
+                        <div>
+                            <div class="localista-perfect-header loc-{{vm.propertyId}}">{{vm.slots[$index].title}}</div>
+                            <div class="localista-perfect-copy">{{vm.slots[$index].description}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

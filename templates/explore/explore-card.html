@@ -1,0 +1,21 @@
+<div class="cell hover-dark">
+    <div class="cell-wrapper ratio-2-3">
+        <div class="cell-content">
+           <!--  <div ng-show="isLoading" class="card-loader animate-hide">
+              <div class="wrapper">
+                <img src="/static/images/loader.png" />
+              </div>
+            </div> -->
+            <slick settings="slickConfig" ng-if="recsLoaded">
+                <div ng-click="triggerFirstLoad()" data-role="none" ng-repeat="slide in ::carouselImages track by $index">
+                    <img ng-show="hasFirstImageLoaded" fade-in smart-image callback="onImageLoad($index)" class="animate-show" ng-src="{{::slide}}" ng-click="triggerFirstLoad()" />
+                </div>
+            </slick>
+            <button ng-show="hasLoadBeenTriggered && isTouch" type="button" ng-click="triggerFirstLoad()" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button">Next</button>
+         <!--    <div class="sub-wrapper">
+              <h4 ng-show="localista && hasFirstImageLoaded" class="animate-show">{{subTitle}}</h4>
+              <h2 ng-show="hasFirstImageLoaded" class="sub animate-show">{{currentTitle}}</h2>
+            </div>
+ -->        </div>
+    </div>
+</div>
