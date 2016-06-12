@@ -1,0 +1,472 @@
+.nav-container {
+    height: $nav-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    @media (max-width: 1143px) {
+        height: $nav-height-mobile
+    }
+}
+
+.elsewhere {
+    background: $base-layout-color;
+}
+
+.hyatt-miami-logo {
+    background: $hyatt-miami-color;
+}
+
+.hyatt-chicago-logo {
+    background:$hyatt-chicago-color;
+}
+
+.four-seasons-logo {
+    background: white;
+    @media (max-width: 1143px) {
+        background: black;
+    }
+}
+
+.hotel-name {
+    font-size: 10px;
+    position: relative;
+    top: -12px;
+    color: white;
+}
+
+ul.main li a,
+ul.main li a:link,
+ul.main li a:visited,
+ul.main li a:active,
+.slide-menu ul.sub li a,
+.slide-menu ul.sub li a:visited,
+form input {
+    color: rgba(97, 180, 228, 1);
+    @at-root .four-seasons & {
+        color: $base-font-color;
+    }
+}
+
+
+.mobile-miami ul.main li a,
+.mobile-miami ul.main li a:link,
+.mobile-miami ul.main li a:visited,
+.mobile-miami ul.main li a:active,
+.slide-menu.mobile-miami ul.sub li a,
+.slide-menu.mobile-miami ul.sub li a:visited,
+.mobile-miami form input {
+  color: rgba(217, 39, 46, 1)
+}
+
+.pageslide-nav-container{
+    height: $nav-height-mobile;
+    background:$white;
+    @at-root .four-seasons & {
+        position: relative;
+    }
+}
+.nav-container .content-container{
+    padding: 0 20px;
+}
+.logo {
+    display: inline;
+    float: left;
+    height:60px;
+    margin: 0 50px 0 0;
+}
+.logo.desktop-only {
+    @at-root .four-seasons & {
+        text-align: center;
+    }
+}
+.four-seasons {
+    .mobile-hotel-name {
+        font-size: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 56px;
+        max-width: 184px;
+    }
+}
+
+.mobile-nav-logo,
+.logo img {
+    width:auto;
+    height: 40px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    @at-root .four-seasons & {
+        height: auto;
+        width: 152px;
+        position: relative;
+        top: 43px;
+    }
+}
+.mobile-nav-logo {
+    display:block;
+    height: auto;
+    width: 156px;
+    margin: auto;
+    text-align: center;
+    top: 31px;
+    transform: translateY(-50%);
+    @at-root .four-seasons & {
+        width: 136px;
+        top: 30px;
+    }
+}
+.nav-search:before {
+    float: left;
+    background-image: url('../images/mag-glass-black.png');
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
+    content:"";
+}
+.mobile-only.nav-search:before {
+    float: left;
+    background-image: url('../images/mag-glass-blue.png');
+    background-size: 16px 16px;
+    width: 16px;
+    height: 16px;
+    margin-top:10px;
+    content:"";
+}
+.mobile-miami .mobile-only.nav-search:before {
+    float: left;
+    background-image: url('../images/mag-glass-pink.png');
+    background-size: 16px 16px;
+    width: 16px;
+    height: 16px;
+    margin-top:10px;
+    content:"";
+}
+
+$placeholderPadding: 15px 0 0 0;
+$placeholderLineHeight: 15px;
+
+.nav-search input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.nav-search input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+.nav-search input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.mobile-only.nav-search input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.mobile-only.nav-search input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+.mobile-only.nav-search input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.nav-search input::-webkit-input-placeholder {
+    color: white;
+    line-height: $placeholderLineHeight;
+    padding: $placeholderPadding;
+}
+
+.nav-search input:-moz-placeholder {
+    color: white;
+    line-height: $placeholderLineHeight;
+    padding: $placeholderPadding;
+}
+
+.nav-search input:-ms-input-placeholder {
+    color: white;
+    line-height: $placeholderLineHeight;
+    padding: $placeholderPadding;
+}
+
+.mobile-only.nav-search input::-webkit-input-placeholder {
+    color: rgba(97, 180, 228, 1);
+}
+
+.mobile-only.nav-search input:-moz-placeholder {
+    color: rgba(97, 180, 228, 1);
+}
+
+.mobile-only.nav-search input:-ms-input-placeholder {
+    color: rgba(97, 180, 228, 1);
+}
+
+.mobile-miami .mobile-only.nav-search input::-webkit-input-placeholder {
+    color: $miamipink;
+}
+
+.mobile-miami .mobile-only.nav-search input:-moz-placeholder {
+    color: $miamipink;
+}
+
+.mobile-miami .mobile-only.nav-search input:-ms-input-placeholder {
+    color: $miamipink;
+}
+
+.nav-search input[type="text"]{
+    font: 200 12px/16px "lato";
+    margin-left: 10px;
+    width: 150px;
+    border-style:none;
+    color: rgba(97, 180, 228, 1);
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    height:24px;
+    color: black;
+    -webkit-touch-callout: none;
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+}
+
+.nav-search input[type="search"]{
+    font: 200 16px "lato";
+    margin-left: 10px;
+    margin-top: 6px;
+    width: 150px;
+    border-style:none;
+    color: rgba(97, 180, 228, 1);
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    color: $white;
+    -webkit-touch-callout: none;
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
+}
+
+.nav-search input:focus,
+.nav-search select:focus,
+.nav-search textarea:focus,
+.nav-search button:focus {
+    outline: none;
+}
+.desktop-only.nav-search {
+    position: absolute;
+    top: 0;
+    right: 220px;
+    height: 30px;
+    // margin: 15px 0;
+}
+.mobile-only.nav-search input[type="search"]{
+    width: 210px;
+    color: rgba(97, 180, 228, 1);
+    border: none;
+}
+.mobile-miami .mobile-only.nav-search input[type="search"]{
+    width: 210px;
+    color: $miamipink;
+    border: none;
+}
+
+.nav-container .nav-links {
+    display: inline-block;
+}
+.nav-container ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.nav-container ul li {
+    display: inline-block;
+    padding: 6px 7px;
+    text-transform: uppercase;
+    @at-root .four-seasons & {
+        text-transform: capitalize;
+    }
+}
+.nav-container ul li a,
+.nav-container ul li a:visited {
+    color: black;
+    opacity: 0.5;
+    font-size: 11px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+.nav-container ul li a:hover{
+    color: black;
+    opacity: 1;
+}
+.nav-container.miami ul li a:hover{
+    opacity: 1;
+}
+.nav-container ul li a.active {
+    color: black;
+    opacity: 1;
+}
+.slide-menu {
+  z-index: 9999 !important;
+}
+.slide-menu ul.main{
+    margin: 20px 0;
+}
+.slide-menu ul.main li {
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+.slide-menu ul.sub {
+  margin-bottom: 50px;
+}
+.slide-menu ul.sub li {
+    padding: 8px 30px;
+}
+.slide-menu ul li a,
+.slide-menu a:visited {
+    color: $navblue;
+    font-weight: 300;
+    @include transition(color 150ms ease-in-out);
+}
+.slide-menu ul.sub li a.active {
+    color: $navblue;
+}
+.slide-menu ul li a:hover{
+    color: $lightblue;
+}
+
+.slide-menu ul li a.active,
+.slide-menu ul li a:visited.active {
+    font-weight: bold !important;
+}
+
+.mobile-miami.slide-menu ul li a,
+.mobile-miami.slide-menu a:visited {
+    color: $miamipink;
+    font-weight: 300;
+    @include transition(color 150ms ease-in-out);
+}
+.mobile-miami.slide-menu ul li a.active {
+    color: $miamipink;
+}
+.mobile-miami.slide-menu ul li a:hover{
+    color: $linkpink;
+}
+
+
+
+.ng-pageslide {
+    background: $lightgrey;
+}
+body.ng-pageslide-body-open::before {
+    content: '.';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0,0,0);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.5;
+    transition: opacity 1s;
+}
+body.ng-pageslide-body-closed::before {
+    transition: opacity 1s;
+    opacity: 0;
+    content: '.';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0,0,0);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+.ourstay{
+    position: absolute;
+    top:21px;
+    left:30px;
+    width: 13px;
+    height: 19px;
+    @at-root .four-seasons & {
+        top: 12px;
+        left: 20px;
+        width: auto;
+        height: 38px;
+    }
+}
+.mobile-only.back-arrow{
+    position: absolute;
+    left: 15px;
+    top:0;
+    font-size: 30px;
+    line-height:60px;
+    color: $white;
+    cursor: pointer;
+
+    img {
+      width: 11px;
+      height: 18px;
+      @include rotate(180);
+    }
+}
+.hamburger,
+.hamburger:visited,
+.hamburger:hover  {
+    color: $white;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 60px;
+    cursor: pointer;
+}
+.hamburger img {
+  width: 17px;
+  height: 12px;
+}
+.open.hamburger,
+.open.hamburger:visited,
+{
+    color: $darkgrey;
+}
+.powered-by img{
+    width: 150px;
+    height: auto;
+    margin: 0 0 0 30px;
+    width: 76px;
+    height: 24px;
+}
+
+.reservation-button {
+    background-color: #007b8a;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px 26px;
+    a, a:visited {
+        color: white !important;
+        line-height: 1;
+        font-family: 'Oswald', sans-serif !important;
+        font-size: 12px !important;
+        letter-spacing: 0.3px !important;
+        text-transform: uppercase;
+    }
+    &.mobile-only {
+        position: relative;
+        margin: 0 -30px;
+    }
+}

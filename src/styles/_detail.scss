@@ -1,0 +1,349 @@
+.back {
+    display: inline-block;
+    margin: 15px 0;
+}
+.slideshow {
+    width: 100%;
+    position: relative;
+}
+.details div.slick-track {
+  .slick-slide img {
+    border-top: 2px white solid;
+  }
+}
+
+.detail-description {
+    @at-root .hyatt & {
+        color: $darkblue;
+    }
+    @at-root .four-seasons & {
+        text-align: center;
+        border-bottom: 1px solid $base-font-color;
+        padding-bottom: 16px;
+    }
+    margin: 50px 0 30px;
+}
+.long-description {
+    margin-bottom: 20px;
+}
+.share-links {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+}
+.loc-icon {
+    padding: 10px 30px 20px;
+    display: inline-block;
+    position: relative;
+    border-right: 1px solid $darkgrey;
+}
+.loc-icon:last-child {
+    border: none;
+}
+.loc-icon img {
+    vertical-align: center;
+    height: 30px;
+    width: auto;
+}
+.call:after,
+.share:after,
+.google-link:after,
+.website:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    text-align: center;
+}
+.call:after {
+    content: "call";
+}
+.share:after {
+    content: "share";
+}
+.google-link:after {
+    content: "directions";
+}
+.website:after {
+    content: "website";
+}
+.recommendation-list-title,
+.detail-section-header {
+    padding: 40px 0 40px;
+    @at-root .hyatt & {
+        color: $darkblue;
+    }
+    @at-root .four-seasons & {
+        border-bottom: 1px solid $base-font-color;
+        padding-bottom: 16px;
+    }
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+.recommendation-location {
+    margin-top: 70px;
+}
+.recommendation-location .street,
+.recommendation-location .address {
+    text-align: center;
+}
+.recommendation-location .address {
+    margin: 10px 0 15px;
+    @at-root .four-seasons & {
+        font-size: 12px;
+    }
+}
+.recommendation-location .street {
+    @at-root .four-seasons & {
+        text-transform: uppercase;
+        font-size: 32px;
+    }
+}
+.from-hotel-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.from-hotel {
+  margin-top: 16px !important;
+}
+.section-highlight {
+    background-color: $new-grey;
+    padding-bottom: 50px;
+}
+.section-highlight-no-pad {
+  background-color: $new-grey;
+  border-bottom: 2px white solid;
+
+  img {
+    border: none !important;
+    display: block;
+  }
+}
+.section-highlight h6.mobile-only {
+    text-align: center;
+}
+.localista-recommended {
+    text-transform: uppercase;
+    margin: 10px 0 20px;
+}
+
+.category-title {
+    margin-top: 50px;
+    h2 {
+        font: 500 28px/25px $Base-Font-Family;
+        color: $base-layout-color;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        @at-root .four-seasons & {
+            font-weight: bold;
+            color: $four-seasons-color;
+        }
+    }
+    p {
+        text-align: center;
+        font: 300 14px/18px $Base-Font-Family;
+        margin-bottom: 15px;
+    }
+    p:nth-child(2) {
+      font: 400 18px/22px $Base-Font-Family;
+      width: 82%;
+      min-width: 280px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    p:last-child {
+      margin-bottom: 35px;
+      margin-top: 10px;
+      a,
+      a:active,
+      a:visited {
+        color: $base-layout-color;
+        @at-root .four-seasons & {
+            color: $four-seasons-color;
+        }
+      }
+
+      a:hover,
+      a:visited:hover {
+        color: #40B4E5;
+      }
+    }
+}
+
+.localista-icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: 0 0;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    border: 1px solid $mediumgrey;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+.localista-byline {
+    display: inline-block;
+    max-width: 300px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.recommended-by {
+    display: inline-block;
+}
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+}
+.hours,
+.travel-time {
+    @at-root .hyatt & {
+        margin-top: 8px;
+    }
+    margin-bottom: 10px;
+    overflow: visible;
+}
+.hours.desktop-only div,
+.hours.mobile-and-desktop div {
+    float: left;
+    white-space: nowrap;
+}
+.mobile-day {
+    width: 35px;
+    display: inline-block;
+}
+.selected {
+    font-weight: bold;
+}
+.day-col-one {
+    width: 15%;
+}
+.range-col-one {
+    width: 40%;
+}
+.day-col-two {
+    width: 8%;
+}
+.range-col-two {
+    width: 37%;
+    float: right;
+    text-align: left
+}
+*[class^='range-col-'] {
+    text-transform: lowercase;
+}
+.hours .selected,
+.travel-time span {
+    @at-root .hyatt & {
+        font-weight: 600;
+    }
+}
+.reservations {
+    border: 1px solid $lightgrey;
+    width: 140px;
+    padding: 10px 30px;
+    margin: 15px 0;
+    height: auto;
+}
+
+.grub-hub-res {
+    margin: 12px 0;
+    width: 100px;
+}
+
+.walk {
+    height: 14px;
+    width: auto;
+    margin: 0 10px 0 8px;
+    position: relative;
+    top: 2px;
+}
+.car {
+    height: 14px;
+    width: auto;
+    margin: 0 0 0 8px;
+    position: relative;
+    top: 2px;
+}
+.clip-circle {
+    background-size: cover;
+    background-position: 0 0;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    border: 3px solid $mediumgrey;
+}
+
+.icon-shadow {
+  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.9));
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .travel-time.small-paragraph,
+    .hours.small-paragraph {
+        font: 300 12px/16px "lato";
+    }
+    .group .detail-heading,
+    .travel-time,
+    .reservations-cta {
+        clear: both;
+    }
+    .reservations {
+        margin: 0 0 0 20px;
+    }
+    .group .travel-time {
+        @at-root .hyatt & {
+            margin: 0 0 0 20px;
+        }
+        position: relative;
+        top: -2px;
+    }
+    .condensed.group {
+        margin: 0 0 10px;
+    }
+}
+@media (max-width: 1123px){
+  .content-container .row-title {
+    height: 100px;
+    @at-root .four-seasons & {
+        padding: 0px 20px;
+        margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 1123px){
+
+    .slideshow{
+        margin-bottom: 15px;
+    }
+
+    .loc-icon img {
+        vertical-align: center;
+        height: 25px;
+        width: auto;
+    }
+    .loc-icon {
+        padding: 10px 25px 20px;
+        display: inline-block;
+        position: relative;
+        border-right: 1px solid $darkgrey;
+    }
+}

@@ -1,0 +1,281 @@
+<div ng-show="vm.isLoading" class="category-loader">
+    <div class="loading-indicator-container">
+        <div class="loading-indicator"></div>
+    </div>
+</div>
+<div ng-hide="vm.isLoading">
+    <div class="row">
+        <div class="col-625 desk-right details">
+            <div class="slideshow" ng-repeat="slides in ::vm.images">
+                <slick settings="vm.slickConfig">
+                    <div ng-repeat="slide in ::slides track by $index">
+                        <img fade-in class="animate-show" ng-src="{{slide}}" alt="">
+                    </div>
+                </slick>
+            </div>
+        </div>
+        <div class="col-375 desk-left content-section">
+            <a class="back desktop-only" ng-href="" our-back-button>&LT; Back</a>
+            <h5>{{::vm.recommendation.name}}</h5>
+            <p class="medium-paragraph w400">{{::vm.recommendation.shortDescription}}</p>
+            <p class="medium-paragraph w400">{{::vm.recommendation.secondWhy}}</p>
+
+            <a ng-if="vm.recommendation.recommenders[0] && (141 != vm.recommendation.meetTheTypeId)">
+                <div class="localista-icon" ng-if="vm.recommendation.recommenders[0]" ng-style="{'background-image':'url(' + vm.recommendation.recommenders[0].imageUrl + ')'}"></div>
+                <div class="localista-byline">
+                    <div class="recommended-by address">
+                        <br />{{vm.recommendation.recommenders[0].firstName}}, {{vm.recommendation.recommenders[0].profileSalutation}}</div>
+                </div>
+            </a>
+            <a ng-href="{{::vm.localistaUrl}}" class="localista-recommended" ng-if="141 == vm.recommendation.meetTheTypeId">
+                <div class="localista-icon" ng-show="vm.recommendation.meetTheUrl" ng-style="{'background-image':'url(' + vm.recommendation.meetTheUrl + ')'}"></div>
+                <div class="localista-byline">
+                    <div class="recommended-by address">
+                        <br />{{vm.recommendation.meetTheFirstName}} Featured Recommendation</div>
+                </div>
+            </a>
+            <hr ng-show="::vm.recommendation.meetTheName" />
+            <div ng-if="vm.recommendation && vm.hasOperatingHours()">
+                <div class="hours row mobile-and-desktop">
+                    <div class="detail-heading loc-{{::vm.propertyId}}">HOURS:
+                        <a class="hours-toggle" ng-href ng-click="vm.toggleAllHours()">
+                            <span ng-show="!vm.allHours">Show All</span>
+                            <span ng-show="vm.allHours">Hide</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hours row small-paragraph mobile-and-desktop" ng-show="!vm.allHours">
+                    <div class="day-col-one selected">Today</div>
+                    <div class="range-col-one selected">{{::vm.getHoursString(vm.currentDay)}}</div>
+                </div>
+                <div class="hours row small-paragraph desktop-only" ng-show="vm.allHours">
+
+                    <table ng-if="::vm.recommendation">
+                        <!-- Mon / Fri -->
+                        <tr ng-if="vm.isOpenOn(vm.days.MON) || vm.isOpenOn(vm.days.FRI)">
+                            <td ng-class="(vm.currentDay === vm.days.MON) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.MON)">Mon</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.MON) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.MON)}}</td>
+                            <td ng-class="(vm.currentDay === vm.days.FRI) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.FRI)">Fri</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.FRI) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.FRI)}}</td>
+                        </tr>
+                        <tr ng-if="vm.isOpenOn(vm.days.MON) || vm.isOpenOn(vm.days.FRI)">
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.MON) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.MON, 'night')}}</td>
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.FRI) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.FRI, 'night')}}</td>
+                        </tr>
+                        <!-- Tues / Sat -->
+                        <tr ng-if="vm.isOpenOn(vm.days.TUE) || vm.isOpenOn(vm.days.SAT)">
+                            <td ng-class="(vm.currentDay === vm.days.TUE) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.TUE)">Tues</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.TUE) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.TUE)}}</td>
+                            <td ng-class="(vm.currentDay === vm.days.SAT) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.SAT)">Sat</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.SAT) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.SAT)}}</td>
+                        </tr>
+                        <tr ng-if="vm.isOpenOn(vm.days.TUE) || vm.isOpenOn(vm.days.SAT)">
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.TUE) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.TUE, 'night')}}</td>
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.SAT) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.SAT, 'night')}}</td>
+                        </tr>
+
+                        <!-- Wed / Sun -->
+                        <tr ng-if="vm.isOpenOn(vm.days.WED) || vm.isOpenOn(vm.days.SUN)">
+                            <td ng-class="(vm.currentDay === vm.days.WED) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.WED)">Wed</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.WED) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.WED)}}</td>
+                            <td ng-class="(vm.currentDay === vm.days.SUN) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.SUN)">Sun</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.SUN) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.SUN)}}</td>
+                        </tr>
+                        <tr ng-if="vm.isOpenOn(vm.days.WED) || vm.isOpenOn(vm.days.SUN)">
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.WED) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.WED, 'night')}}</td>
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.SUN) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.SUN, 'night')}}</td>
+                        </tr>
+
+                        <!-- Thurs / (none) -->
+                        <tr ng-if="vm.isOpenOn(vm.days.THU)">
+                            <td ng-class="(vm.currentDay === vm.days.THU) ? 'selected' : ''"><span ng-show="vm.isOpenOn(vm.days.THU)">Thurs</span></td>
+                            <td ng-class="(vm.currentDay === vm.days.THU) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.THU)}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr ng-if="vm.isOpenOn(vm.days.THU)">
+                            <td></td>
+                            <td ng-class="(vm.currentDay === vm.days.THU) ? 'selected' : ''" class="lower">{{::vm.getHoursString(vm.days.THU, 'night')}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="hours row small-paragraph mobile-only" ng-if="vm.recommendation" ng-show="vm.allHours">
+                    <div ng-repeat="day in vm.days">
+                        <div>
+                            <span ng-class="(vm.currentDay === day) ? 'selected' : ''" class="mobile-day">{{vm.dayStringMap[day]}}</span>
+                            <span ng-class="(vm.currentDay === day) ? 'selected' : ''" class="mobile-hours">{{vm.getHoursString(day)}}</span>
+                        </div>
+                        <div>
+                            <span class="mobile-day" ng-show="vm.getHoursString(day, 'night') !== ''">&nbsp;</span>
+                            <span ng-class="(vm.currentDay === day) ? 'selected' : ''">{{vm.getHoursString(day, 'night')}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="from-hotel-container">
+                <div ng-show="vm.recommendation.startPointLabel" class="condensed group from-hotel">
+                    <div ng-hide="vm.recommendation.startPointLabel === 'hotel'" class="detail-heading loc-{{::vm.propertyId}}">From {{vm.recommendation.startPointLabel}}:</div>
+                    <div ng-show="vm.recommendation.startPointLabel === 'hotel'" class="detail-heading loc-{{::vm.propertyId}}">From Hotel</div>
+                    <div class="travel-time small-paragraph">
+                        <span ng-show="vm.recommendation.walkingMinutesValue <= vm.recommendation.maxWalkingMinutes">{{vm.recommendation.walkingMinutes}}</span>
+                        <img ng-show="vm.recommendation.walkingMinutesValue <= vm.recommendation.maxWalkingMinutes" class="walk" ng-src="/static/images/walk.png" />
+                        <span>{{vm.recommendation.drivingMinutes}}</span>
+                        <img class="car" ng-src="/static/images/car.png" />
+                    </div>
+                </div>
+                <div class="condensed group" ng-show="vm.recommendation.externalServices[0].url">
+                    <!-- <div ng-show="vm.recommendation.externalServices[0].label === 'grubHub'" class="detail-heading loc-{{::vm.propertyId}} caps">Want to order in?</div>
+                    <div ng-show="vm.recommendation.externalServices[0].label === 'openTable'" class="detail-heading loc-{{::vm.propertyId}}">Want to make a reservation?</div>
+                    <div class="reservations-cta"> -->
+
+                        <a ng-show="vm.recommendation.externalServices[0].label === 'openTable'" ng-href="{{vm.recommendation.externalServices[0].url}}" target="_blank">
+                            <img class="grub-hub-res" ng-src="/static/images/opentable.png" />
+                        </a>
+
+                        <a ng-show="vm.recommendation.externalServices[0].label === 'grubHub'" ng-href="{{vm.recommendation.externalServices[0].url}}" target="_blank">
+                            <img class="grub-hub-res" ng-src="/static/images/grub-hub-button.png" />
+                        </a>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row section-highlight-no-pad">
+        <div class="col-625">
+          <img fade-in class="animate-show" ng-src="{{vm.recommendation.primaryImageUrl}}" />
+        </div>
+        <div class="col-375 content-section">
+          <h6 class="detail-description loc-{{::vm.propertyId}}">DESCRIPTION</h6>
+          <p class="medium-paragraph long-description" ng-repeat="paragraph in vm.recommendation.description">{{paragraph}}</p>
+        </div>
+    </div>
+    <div class="row modal-register">
+        <div class="col-375 content-section recommendation-location">
+            <h6 class="street loc-{{vm.propertyId}}">{{vm.recommendation.street1}}<span ng-if="vm.recommendation.street2">, {{vm.recommendation.street2}}</span></h6>
+            <div class="address loc-{{vm.propertyId}}">{{vm.recommendation.city}}, {{vm.recommendation.state}} {{vm.recommendation.postalCode}} <span class="desktop-only" ng-if="vm.recommendation.phone">| {{vm.recommendation.phone}}</span></div>
+            <div class="share-links">
+                <share-modal show='modalShown' width='450px' height='300px'>
+                    <h1>Sharing</h1>
+                    <div class="modal-links" ng-if="vm.recommendation" ng-init="shareText = 'I found this great place to check out in ' + vm.recommendation.city + ': '">
+                        <!-- REPLACE 33333333333333 -->
+                        <a class="share-bug" ng-href="https://www.facebook.com/dialog/feed?display=popup&app_id=333333333333333&description={{vm.getDesc()}}&caption={{shareText}}&picture={{vm.recommendation.primaryImageUrl}}&name={{vm.recommendation.name}}&link={{vm.getUrl()}}&redirect_uri={{vm.getUrl()}}" target="_blank">
+                            <div class="social-button facebook-button">
+                                <i class="fa fa-facebook social-icons"></i>
+                                <div class="social-button-text">Facebook</div>
+                            </div>
+                        </a>
+                        <a class="share-bug" ng-href="http://twitter.com/share?text={{shareText}}&url={{vm.getUrl()}}" target="_blank">
+                            <div class="social-button twitter-button">
+                                <i class="fa fa-twitter social-icons"></i>
+                                <div class="social-button-text">Twitter</div>
+                            </div>
+                        </a>
+                        <a class="share-bug" ng-href="mailto:?subject=Here's a Great Place to Check Out in {{vm.recommendation.city}}&body=Check out a place that locals love in {{vm.recommendation.city}}, {{vm.recommendation.name}}: {{vm.getUrl()}}%0D%0A%0D%0AI found it on Four Seasons Recommends.">
+                            <div class="social-button email-button">
+                                <i class="fa fa-envelope social-icons"></i>
+                                <div class="social-button-text">Email</div>
+                            </div>
+                        </a>
+                        <a class="share-bug" ng-href="sms:?body=Check%20out%20{{vm.recommendation.name}}%20{{vm.getUrl()}}%0D%0A%0D%0AI%20found%20it%20on%20Four%20Seasons%20Recommends.">
+                            <div class="social-button sms-button">
+                                <i class="fa fa-mobile social-icons"></i>
+                                <div class="social-button-text">SMS</div>
+                            </div>
+                        </a>
+                    </div>
+                </share-modal>
+
+                <a class="loc-icon call mobile-only loc-{{::vm.propertyId}}" ng-href="tel:{{vm.recommendation.phone | phonefilter}}">
+                    <i class="fa fa-phone fa-2x"></i>
+                </a>
+                <a class="loc-icon share loc-{{::vm.propertyId}}" ng-href="#" ng-click='toggleModal()'>
+                    <i class="fa fa-share-alt fa-2x"></i>
+                </a>
+                <a class="loc-icon google-link loc-{{::vm.propertyId}}" ng-href="{{vm.getDirectionsLink()}}" target="_blank">
+                    <span class="fa-stack fa">
+                      <i class="fa fa-circle-thin fa-stack-2x"></i>
+                      <i class="fa fa-location-arrow fa-stack-1x"></i>
+                    </span>
+                </a>
+                <a class="loc-icon website loc-{{::vm.propertyId}}" ng-href="{{vm.recommendation.url}}" target="_blank">
+                    <i class="fa fa-globe fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-625">
+            <static-map-img location="{{vm.recommendation.location}}" width="640" height="240"></static-map-img>
+        </div>
+    </div>
+    <div id="localista" class="section-highlight" ng-if="141 == vm.recommendation.meetTheTypeId">
+        <h6 class="detail-section-header loc-{{::vm.propertyId}} meet-localista-header">Meet Our Featured Concierge</h6>
+        <h6 class="mobile-only meet-localista-sub-header">{{vm.recommendation.meetTheFirstName}}</h6>
+        <div class="row col-70">
+            <div class="col-30 ">
+                <div class=" mobile-shrink-60">
+                    <div class="cell-wrapper ratio-1">
+                        <div class="cell-content clip-circle" ng-style="{'background-image':'url({{::vm.recommendation.meetTheUrl}})'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-70 content-section">
+                <h6 class="desktop-only">{{vm.recommendation.meetTheFirstName}}</h6>
+                <div class="detail-heading meet-tagline">{{vm.recommendation.meetTheTagline}}</div>
+                <p class="medium-paragraph">{{vm.recommendation.meetTheDescription}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="recommender" class="section-highlight" ng-if="vm.recommendation.recommenders[0] && (141 != vm.recommendation.meetTheTypeId)">
+        <h6 class="detail-section-header loc-{{::vm.propertyId}} meet-localista-header">Meet Our Very Own Concierge</h6>
+        <h6 class="mobile-only meet-localista-sub-header">{{::vm.recommendation.recommenders[0].firstName}}, {{::vm.recommendation.recommenders[0].profileSalutation}}</h6>
+        <div class="row col-70">
+            <div class="col-30 ">
+                <div class=" mobile-shrink-60">
+                    <div class="cell-wrapper ratio-1">
+                        <div class="cell-content clip-circle" ng-style="{'background-image':'url({{::vm.recommendation.recommenders[0].imageUrl}})'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-70 content-section">
+                <h6 class="desktop-only">Recommended by
+                    <br>{{::vm.recommendation.recommenders[0].firstName}}, {{::vm.recommendation.recommenders[0].profileSalutation}}</h6>
+                <div class="detail-heading" ng-repeat="reason in ::vm.recommendation.recommenders[0].reasons track by $index">{{::reason}}</div>
+                <p class="medium-paragraph">{{::vm.recommendation.recommenders[0].description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-title">
+        <h6 class="detail-section-header loc-{{::vm.propertyId}}">In the Neighbourhood</h6>
+    </div>
+
+    <div class="uniform recommendation-grid row">
+        <recommendation-card recommendation="rec" property-id="vm.propertyId" ng-repeat="rec in vm.recommendation.nearby.slice(0,2) track by rec.id"></recommendation-card>
+    </div>
+
+    <div class="row-title" ng-if="(vm.recommendation.localistaRecommendations.length == 0) && (vm.fullyLoadedCategories.length > 0)">
+        <h6 class="detail-section-header loc-{{::vm.propertyId}}">Also if you're in the mood for</h6>
+    </div>
+    <div class="row detail-explore-grid" ng-if="vm.recommendation.localistaRecommendations.length == 0">
+        <explore-card property-id="vm.propertyId" category="cat" ng-repeat="cat in vm.fullyLoadedCategories.slice(0,4) track by cat.id"></explore-card>
+    </div>
+
+    <div class="row-title" ng-if="vm.recommendation.localistaRecommendations.length > 0">
+        <h6 class="detail-section-header loc-{{::vm.propertyId}}">Also recommended by Featured Concierge</h6>
+    </div>
+
+    <div class="uniform recommendation-grid row" ng-if="vm.recommendation.localistaRecommendations.length > 0">
+        <recommendation-card recommendation="rec" property-id="vm.propertyId" ng-repeat="rec in ::vm.recommendation.localistaRecommendations track by rec.id"></recommendation-card>
+    </div>
+
+</div>

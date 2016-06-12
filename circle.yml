@@ -1,0 +1,34 @@
+machine:
+  timezone:
+    America/Los_Angeles
+
+dependencies:
+  post:
+    - npm install gulp
+    - bower install
+
+test:
+  override:
+    - $HOME/ourstay/node_modules/karma/bin/karma start karma.conf.js --single-run
+
+deployment:
+  qa:
+    branch: qa
+    commands:
+      - ./scripts/deploy qa
+  dev:
+    branch: develop
+    commands:
+      - ./scripts/deploy dev
+  prod:
+    branch: master
+    commands:
+      - ./scripts/deploy prod
+
+experimental:
+  notify:
+    branches:
+      only:
+        - qa
+        - master
+        - develop

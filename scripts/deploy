@@ -1,0 +1,44 @@
+#!/bin/sh
+
+PROJECT_DIR="$HOME/ourstay"
+OUT_DIR="$HOME/ourstay/dist"
+
+if [ ! $# -gt 0 ]; then
+    echo 'You did not provide a release'; exit 1;
+else
+    RELEASE=$1
+fi
+
+echo "Deleting dist folder..."
+rm -Rf "$OUT_DIR"
+
+echo "Rebuilding dist folder..."
+cd $PROJECT_DIR && gulp build
+
+case "$RELEASE" in
+    'prod')
+        echo "Deploying to production..."
+        EC2_USER="ubuntu"
+        EC2_DNS="52.9.62.242"
+    ;;
+    'staging')
+        echo "Deploying to staging..."
+        EC2_USER="ubuntu"
+        EC2_DNS="ec2-52-8-227-240.us-west-1.compute.amazonaws.com"
+    ;;
+    'qa')
+        echo "Deploying to qa..."
+        EC2_USER="ubuntu"
+        EC2_DNS="ec2-52-8-193-125.us-west-1.compute.amazonaws.com"
+    ;;
+    'dev')
+        echo "Deploying to dev..."
+        EC2_USER="ubuntu"
+        EC2_DNS="ec2-52-8-248-42.us-west-1.compute.amazonaws.com"
+    ;;
+    *)
+        echo "Sorry, this release is not recognized"; exit 1;
+    ;;
+esac
+
+cd $OUT_DIR && scp -r . "$EC2_USER"@"$EC2_DNS":/home/ubuntu/ourstay/

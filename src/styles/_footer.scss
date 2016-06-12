@@ -1,0 +1,67 @@
+.footer {
+    height: $footer-height;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+}
+.footer .content-container {
+
+    padding: 15px;
+    position: relative;
+
+}
+.ourstay-logos{
+    background-color: $white;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    height: 50px;
+    overflow:visible;
+}
+
+.ourstay-logos .footer-logo
+{
+    height: 32px;
+    width: auto;
+}
+
+.footer-icon {
+    height: 48px;
+    width: auto;
+    position: absolute;
+    top: 0px;
+    right: 135px;
+}
+.footer ul li a,
+.footer ul li a:hover,
+.footer ul li a:visited {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    opacity: 0.5;
+}
+.footer ul li a:hover {
+    opacity: 1.0;
+}
+.footer ul li {
+    display: inline;
+    color: black;
+    font-size: 12px;
+}
+.footer ul li:last-child {
+  opacity: 0.5;
+}
+.footer ul li a {
+    padding: 0 10px 0 5px;
+}
+.footer li:after {
+    content: "|";
+}
+.footer li:last-of-type:after {
+    content: "";
+}
+.footer li span:last-of-type {
+    padding-left: 7px;
+}
